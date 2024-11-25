@@ -40,39 +40,39 @@ const Navigation = () => {
             sections: [
               {
                 id: 'clothing',
-                name: 'Clothing',
+                name: 'Footwear',
                 items: [
-                  { name: 'Tops', href: '#' },
-                  { name: 'Dresses', href: '#' },
-                  { name: 'Pants', href: '#' },
-                  { name: 'Denim', href: '#' },
-                  { name: 'Sweaters', href: '#' },
-                  { name: 'T-Shirts', href: '#' },
-                  { name: 'Jackets', href: '#' },
-                  { name: 'Activewear', href: '#' },
+                  { name: 'Boots', href: '#' },
+                  { name: 'Heels', href: '#' },
+                  { name: 'Flats', href: '#' },
+                  { name: 'Sneakers & Sports Shoes', href: '#' },
+                  { name: 'Sandals & Slides', href: '#' },
+                  { name: 'Mules & Clogs', href: '#' },
+                  { name: 'Slippers', href: '#' },
+                  { name: 'Work & Formal Footwear', href: '#' },
                   { name: 'Browse All', href: '#' },
                 ],
               },
-              {
-                id: 'accessories',
-                name: 'Accessories',
-                items: [
-                  { name: 'Watches', href: '#' },
-                  { name: 'Wallets', href: '#' },
-                  { name: 'Bags', href: '#' },
-                  { name: 'Sunglasses', href: '#' },
-                  { name: 'Hats', href: '#' },
-                  { name: 'Belts', href: '#' },
-                ],
-              },
+              // {
+              //   id: 'accessories',
+              //   name: 'Accessories',
+              //   items: [
+              //     { name: 'Watches', href: '#' },
+              //     { name: 'Wallets', href: '#' },
+              //     { name: 'Bags', href: '#' },
+              //     { name: 'Sunglasses', href: '#' },
+              //     { name: 'Hats', href: '#' },
+              //     { name: 'Belts', href: '#' },
+              //   ],
+              // },
               {
                 id: 'brands',
                 name: 'Brands',
                 items: [
-                  { name: 'Full Nelson', href: '#' },
-                  { name: 'My Way', href: '#' },
-                  { name: 'Re-Arranged', href: '#' },
-                  { name: 'Counterfeit', href: '#' },
+                  { name: 'Nike', href: '#' },
+                  { name: 'Adidas', href: '#' },
+                  { name: 'Steve Madden', href: '#' },
+                  { name: 'Dr. Martens', href: '#' },
                   { name: 'Significant Other', href: '#' },
                 ],
               },
@@ -99,37 +99,39 @@ const Navigation = () => {
             sections: [
               {
                 id: 'clothing',
-                name: 'Clothing',
+                name: 'Footwear',
                 items: [
-                  { name: 'Tops', href: '#' },
-                  { name: 'Pants', href: '#' },
-                  { name: 'Sweaters', href: '#' },
-                  { name: 'T-Shirts', href: '#' },
-                  { name: 'Jackets', href: '#' },
-                  { name: 'Activewear', href: '#' },
+                  { name: 'Boots', href: '#' },
+                  { name: 'Sneakers', href: '#' },
+                  { name: 'Loafers', href: '#' },
+                  { name: 'Dress Shoes', href: '#' },
+                  { name: 'Casual Shoes', href: '#' },
+                  { name: 'Sandals & Slides', href: '#' },
+                  { name: 'Slippers', href: '#' },
+                  { name: 'Athletic Shoes', href: '#' },
                   { name: 'Browse All', href: '#' },
                 ],
               },
-              {
-                id: 'accessories',
-                name: 'Accessories',
-                items: [
-                  { name: 'Watches', href: '#' },
-                  { name: 'Wallets', href: '#' },
-                  { name: 'Bags', href: '#' },
-                  { name: 'Sunglasses', href: '#' },
-                  { name: 'Hats', href: '#' },
-                  { name: 'Belts', href: '#' },
-                ],
-              },
+              // {
+              //   id: 'accessories',
+              //   name: 'Accessories',
+              //   items: [
+              //     { name: 'Watches', href: '#' },
+              //     { name: 'Wallets', href: '#' },
+              //     { name: 'Bags', href: '#' },
+              //     { name: 'Sunglasses', href: '#' },
+              //     { name: 'Hats', href: '#' },
+              //     { name: 'Belts', href: '#' },
+              //   ],
+              // },
               {
                 id: 'brands',
                 name: 'Brands',
                 items: [
-                  { name: 'Re-Arranged', href: '#' },
-                  { name: 'Counterfeit', href: '#' },
-                  { name: 'Full Nelson', href: '#' },
-                  { name: 'My Way', href: '#' },
+                  { name: 'Puma', href: '#' },
+                  { name: 'Reebok', href: '#' },
+                  { name: 'New Balance', href: '#' },
+                  { name: 'Vans', href: '#' },
                 ],
               },
             ],
@@ -389,10 +391,11 @@ const Navigation = () => {
                   <a href="#" className="flex items-center text-gray-700 hover:text-gray-800">
                     <img
                       alt=""
-                      src="https://tailwindui.com/plus/img/flags/flag-canada.svg"
+                      src="https://www.svgrepo.com/show/405510/flag-for-flag-india.svg"
+                      // src="https://tailwindui.com/plus/img/flags/flag-canada.svg"
                       className="block h-auto w-5 shrink-0"
                     />
-                    <span className="ml-3 block text-sm font-medium">CAD</span>
+                    <span className="ml-3 block text-sm font-medium">IND</span>
                     <span className="sr-only">, change currency</span>
                   </a>
                 </div>
