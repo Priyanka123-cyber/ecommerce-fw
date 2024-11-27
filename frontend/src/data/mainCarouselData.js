@@ -8,7 +8,7 @@ export const mainCarouselData=[
         path:""
     },
     {
-        image:"",
+        image:"https://i.ytimg.com/vi/Rt7usOrQJeE/maxresdefault.jpg",
         path:""
     },
     {
