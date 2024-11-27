@@ -22,7 +22,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import FilterListIcon from '@mui/icons-material/FilterList';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 
 const sortOptions = [
@@ -39,9 +39,33 @@ function classNames(...classes) {
 export default function Product() {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
   const location = useLocation()
+  const navigate =useNavigate();
   const handleFilter = (value,sectionId) => {
     const searchParams = new URLSearchParams(location.search)
     let filterValue=searchParams.getAll(sectionId)
+    if(filterValue.length>0 && filterValue[0].split(",").includes(value)){
+      filterValue=filterValue[0].split(",").filter((item)=>item!==value);
+
+      if(filterValue.length===0){
+        searchParams.delete(sectionId)
+      }
+    }
+    else{
+      filterValue.push(value)
+    }
+    if(filterValue.length>0){
+      searchParams.set(sectionId,filterValue.join(","));
+      
+    }
+    const query = searchParams.toString();
+      navigate({search:`?${query}`})
+  }
+  const handleRadioFilterChange=(e,sectionId)=>{
+    const searchParams = new URLSearchParams(location.search)
+
+    searchParams.set(sectionId,e.target.value)
+    const query = searchParams.toString();
+    navigate({search:`?${query}`})
   }
 
   return (
@@ -196,7 +220,8 @@ export default function Product() {
                         <div className="space-y-4">
                           {section.options.map((option, optionIdx) => (
                             <div key={option.value} className="flex items-center">
-                              <input
+                              <input 
+                              onChange={()=>handleFilter(option.value,section.id)}
                                 defaultValue={option.value}
                                 defaultChecked={option.checked}
                                 id={`filter-${section.id}-${optionIdx}`}
@@ -236,7 +261,7 @@ export default function Product() {
                               >
                                 {section.options.map((option, optionIdx) => (
                                   <>
-                                    <FormControlLabel value={option.id} control={<Radio />} label={option.label} />
+                                    <FormControlLabel onChange={(e)=>handleRadioFilterChange(e,section.id)} value={option.value} control={<Radio />} label={option.label} />
                                   </>
                                 ))}
                               </RadioGroup>

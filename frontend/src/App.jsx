@@ -12,8 +12,8 @@ function App() {
   return (
     <>
      <Navigation/>
-     {/* <HomePage/> */}
-     <Product/>
+     <HomePage/>
+     {/* <Product/> */}
     </>
   )
 }
