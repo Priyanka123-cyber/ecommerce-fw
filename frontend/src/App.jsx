@@ -4,15 +4,15 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Navigation from './components/Navigation'
 import HomePage from './components/HomePage'
-import Product from './components/Product'
+import Product from './components/Product/Product'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-     <Navigation/><br />
-     <HomePage/>
+     <Navigation/>
+     {/* <HomePage/> */}
      <Product/>
     </>
   )
