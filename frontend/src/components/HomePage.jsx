@@ -14,7 +14,7 @@ const HomePage = () => {
             <HomeSectionCarousel data={mens_kurta} sectionName={"New Arrivals"}/>
             <HomeSectionCarousel data={mens_kurta} sectionName={"Formal Collection"}/>
         </div>
-        <Footer/>
+        {/* <Footer/> */}
     </div>
   )
 }
