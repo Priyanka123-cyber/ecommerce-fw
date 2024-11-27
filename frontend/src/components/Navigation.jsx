@@ -22,15 +22,15 @@ function classNames(...classes) {
 
 export default function Navigation() {
   const [open, setOpen] = useState(false);
- 
+
   const [openAuthModal, setOpenAuthModal] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const openUserMenu = Boolean(anchorEl);
   const jwt = localStorage.getItem("jwt");
 
 
- 
-  
+
+
   const handleUserClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -43,7 +43,7 @@ export default function Navigation() {
   };
   const handleClose = () => {
     setOpenAuthModal(false);
-   
+
   };
 
   const handleCategoryClick = (category, section, item, close) => {
@@ -238,14 +238,14 @@ export default function Navigation() {
 
               {/* Logo */}
               <div className="ml-4 flex lg:ml-0">
-                
-                  <span className="sr-only">Your Company</span>
-                  <img
-                    src="https://res.cloudinary.com/ddkso1wxi/image/upload/v1675919455/Logo/Copy_of_Zosh_Academy_nblljp.png"
-                    alt="Shopwithzosh"
-                    className="h-8 w-8 mr-2"
-                  />
-                
+
+                <span className="sr-only">Your Company</span>
+                <img
+                  src="https://res.cloudinary.com/ddkso1wxi/image/upload/v1675919455/Logo/Copy_of_Zosh_Academy_nblljp.png"
+                  alt="Shopwithzosh"
+                  className="h-8 w-8 mr-2"
+                />
+
               </div>
 
               {/* Flyout menus */}
@@ -397,7 +397,7 @@ export default function Navigation() {
                           cursor: "pointer",
                         }}
                       >
-                       
+                      E
                       </Avatar>
                       {/* <Button
                         id="basic-button"
@@ -420,7 +420,7 @@ export default function Navigation() {
                         <MenuItem onClick={handleCloseUserMenu}>
                           Profile
                         </MenuItem>
-                        
+
                         <MenuItem >
                           My Orders
                         </MenuItem>
@@ -451,7 +451,7 @@ export default function Navigation() {
                 {/* Cart */}
                 <div className="ml-4 flow-root lg:ml-6">
                   <Button
-                  
+
                     className="group -m-2 flex items-center p-2"
                   >
                     <ShoppingBagIcon
@@ -469,7 +469,7 @@ export default function Navigation() {
           </div>
         </nav>
       </header>
-      
+
     </div>
   );
 }
