@@ -1,0 +1,13 @@
+.carousel-container {
+    width: 100vw;
+    height: 70vh;
+    overflow: hidden;
+}
+
+.carousel-image {
+    width: 100vw;
+    height: 70vh;
+    object-fit:fill; 
+    z-index: -1;
+    image-rendering: auto;
+}
