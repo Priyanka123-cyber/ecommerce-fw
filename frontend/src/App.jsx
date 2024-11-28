@@ -7,6 +7,10 @@ import HomePage from './components/HomePage'
 import Product from './components/Product/Product'
 import Footer from './components/Footer'
 import ProductDetails from './components/ProductDetails/ProductDetails'
+import Cart from './components/cart/Cart'
+import Checkout from './components/Checkout/Checkout'
+import OrderSummary from './components/Checkout/OrderSummary'
+import Order from './components/Order/Order'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -17,7 +21,10 @@ function App() {
      <div>
      {/* <HomePage/> */}
      {/* <Product/> */}
-     <ProductDetails/>
+     {/* <ProductDetails/> */}
+     {/* <Cart/> */}
+     {/* <Checkout/> */}
+     <Order/>
      </div>
      <Footer/>
      </div>
