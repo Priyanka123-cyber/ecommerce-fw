@@ -14,6 +14,7 @@ import { Avatar, Button, Menu, MenuItem } from "@mui/material";
 
 import { deepPurple } from "@mui/material/colors";
 import { navigation } from "../data/navigationmenu";
+import { useNavigate } from "react-router-dom";
 
 
 function classNames(...classes) {
@@ -22,6 +23,7 @@ function classNames(...classes) {
 
 export default function Navigation() {
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate()
 
   const [openAuthModal, setOpenAuthModal] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
@@ -241,7 +243,7 @@ export default function Navigation() {
 
                 <span className="sr-only">Your Company</span>
                 <img
-                  src="https://res.cloudinary.com/ddkso1wxi/image/upload/v1675919455/Logo/Copy_of_Zosh_Academy_nblljp.png"
+                  src="https://s3.amazonaws.com/cdn.designcrowd.com/blog/2019/07/45-shoe-logos/images/Shadow.jpg"
                   alt="Shopwithzosh"
                   className="h-8 w-8 mr-2"
                 />

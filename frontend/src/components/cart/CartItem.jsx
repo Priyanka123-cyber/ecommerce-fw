@@ -7,7 +7,7 @@ const CartItem = () => {
         <div className='p-5 shadow-lg border rounded-md'>
             <div className='flex items-center'>
                 <div className='w-[5rem] h-[5rem] lg:w-[9rem] lg:h-[9rem]'>
-                    <img className='w-full h-full object-cover object-top' src="https://rukminim1.flixcart.com/image/612/612/xif0q/kurta/l/f/r/xl-k-spl668-yellow-sg-leman-original-imagznqcrahgq9rf.jpeg?q=70" alt="" />
+                    <img className='w-full h-full object-cover object-top' src="https://rukminim1.flixcart.com/image/1664/1664/shoe/m/z/u/camel-g-4092y14-woodland-40-original-imadwjtqnv3pxhd9.jpeg?q=90" alt="" />
                 </div>
                 <div className='ml-5 space-y-1 '>
                     <p className='font-semibold'> Mens shoes</p>

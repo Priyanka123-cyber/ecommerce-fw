@@ -11,22 +11,29 @@ import Cart from './components/cart/Cart'
 import Checkout from './components/Checkout/Checkout'
 import OrderSummary from './components/Checkout/OrderSummary'
 import Order from './components/Order/Order'
+import OrderDetail from './components/Order/OrderDetail'
+import CustomerRouters from './Routers/CustomerRouters'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <div className=''>
-     <Navigation/>
+      <Routes>
+            <Route path='/*' element={<CustomerRouters/>}></Route>
+
+        </Routes>
+     {/* <Navigation/> */}
      <div>
-     {/* <HomePage/> */}
-     {/* <Product/> */}
-     {/* <ProductDetails/> */}
-     {/* <Cart/> */}
-     {/* <Checkout/> */}
+     {/* <HomePage/> 
+     <Product/>
+     <ProductDetails/>
+      <Cart/>
+     <Checkout/>
      <Order/>
+     <OrderDetail/> */}
      </div>
-     <Footer/>
+     {/* <Footer/> */}
      </div>
   )
 }
