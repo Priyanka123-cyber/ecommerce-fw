@@ -13,6 +13,7 @@ import OrderSummary from './components/Checkout/OrderSummary'
 import Order from './components/Order/Order'
 import OrderDetail from './components/Order/OrderDetail'
 import CustomerRouters from './Routers/CustomerRouters'
+import { Route, Routes } from 'react-router-dom'
 
 function App() {
   const [count, setCount] = useState(0)
