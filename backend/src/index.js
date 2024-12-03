@@ -17,4 +17,15 @@ app.use('/auth',authRouters);
 const userRouters = require("./routes/userRoute");
 app.use('/api/users',userRouters);
 
+const productRouter=require("./routes/productRoutes");
+app.use("/api/products",productRouter);
+
+const adminPrdoductRouter = require("./routes/adminProductRoutes");
+app.use("/api/admin/products",adminPrdoductRouter);
+
+const cartRouter=require("./routes/cartRoutes");
+app.use("/api/cart",cartRouter)
+
+const cartItemRouter=require("./routes/cartItemRoutes");
+
 module.exports= app;

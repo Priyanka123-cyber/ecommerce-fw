@@ -49,5 +49,6 @@ async function findCartItemById(cartItemId){
 }
 module.exports={
     updateCartItem,
-    removeCartItem
+    removeCartItem,
+    findCartItemById
 }
