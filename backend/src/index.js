@@ -27,5 +27,18 @@ const cartRouter=require("./routes/cartRoutes");
 app.use("/api/cart",cartRouter)
 
 const cartItemRouter=require("./routes/cartItemRoutes");
+app.use("/api/cart_items", cartItemRouter)
+
+const orderRouter= require("./routes/orderRoutes")
+app.use("/api/orders",orderRouter);
+
+const adminOrderRouter= require("./routes/adminOrderRoutes")
+app.use("/api/admin/orders", adminOrderRouter)
+
+const reviewRouter= require("./routes/reviewRoutes");
+app.use("/api/reviews", reviewRouter);
+
+const ratingRouter=require("./routes/ratingRoutes")
+app.use("/api/ratings", ratingRouter)
 
 module.exports= app;
