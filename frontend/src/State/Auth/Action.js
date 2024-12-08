@@ -18,7 +18,7 @@ export const register=(userData)=>async (dispatch)=>{
         else {
             console.error("JWT not found in response.");
         }
-        console.log("user",user);
+        console.log("user",userData);
         dispatch(registerSuccess(user));//user.jwt
     } catch (error) {
         dispatch(registerFailure(error.message));
@@ -32,7 +32,7 @@ const loginFailure=(error)=>({type:LOGIN_FAILURE,payload:error});
 //login method
 export const login=(userData)=>async (dispatch)=>{
     dispatch(loginRequest())
-    console.log("user",user);
+    console.log("user",userData);
     try {
         const response= await axios.post(`${API_BASE_URL}/auth/signin`,userData);
         const user=response.data;
@@ -67,13 +67,13 @@ const getUserFailure=(error)=>({type:GET_USER_FAILURE,payload:error});
 
 // }
 
-export const getUser = (token) => {
+export const getUser = (jwt) => {
     return async (dispatch) => {
       dispatch({ type: GET_USER_REQUEST });
       try {
         const response = await axios.get(`${API_BASE_URL}/api/users/profile`,{
           headers:{
-            "Authorization":`Bearer ${token}`
+            "Authorization":`Bearer ${jwt}`
           }
         });
         const user = response.data;
@@ -87,4 +87,5 @@ export const getUser = (token) => {
   };
 export const logout=()=>(dispatch)=>{
 dispatch({type:LOGOUT,payload:null})
+localStorage.clear();
 }

@@ -90,7 +90,7 @@ const RegisterForm = () => {
         </Grid>
         </form>
         <div className='=flex justify-center flex-col items-center'>
-            <div>
+            <div className='py-3 flex items-center'>
                 <p>if you have already account ?</p>
                 <Button onClick={()=>navigate("/login")} className='ml-5' size='small'>Login</Button>
             </div>

@@ -21,7 +21,7 @@ const style = {
 };
 
 const AuthModal = ({handleClose,open}) => {
-  const location =useLocation()
+  const location =useLocation();
   return (
     <div><Modal
     open={open}
