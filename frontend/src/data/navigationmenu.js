@@ -21,9 +21,9 @@
             sections: [
               {
                 id: 'clothing',
-                name: 'Footwear',
+                name: 'clothing',
                 items: [
-                  { name: 'Boots', href: '#' },
+                  { name:'Tops',id:"top", href: `{women/clothing/tops}` },
                   { name: 'Heels', href: '#' },
                   { name: 'Flats', href: '#' },
                   { name: 'Sneakers & Sports Shoes', href: '#' },
@@ -80,9 +80,9 @@
             sections: [
               {
                 id: 'clothing',
-                name: 'Footwear',
+                name: 'Clothing',
                 items: [
-                  { name: 'Boots', href: '#' },
+                  { name: 'mens_kurta',id:"mens_kurta", href:`{men/clothing/mens_kurta}`},
                   { name: 'Sneakers', href: '#' },
                   { name: 'Loafers', href: '#' },
                   { name: 'Dress Shoes', href: '#' },

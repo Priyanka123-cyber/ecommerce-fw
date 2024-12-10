@@ -5,8 +5,10 @@ const authenticate=async(req,res,next)=>{
     //Bearer token...
     try {
         const token= req.headers.authorization?.split(" ")[1];
+        console.log('kqjsh')
+        console.log(token)
         if(!token){
-            return req.status(404).send({error:"token not found"})
+            return res.status(404).send({error:"token not foundsss"})
         }
         const userId=jwtProvider.getUseridFromToken(token);
         const user =await userService.findUserById(userId);

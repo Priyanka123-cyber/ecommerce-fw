@@ -77,14 +77,22 @@ async function findProductById(id){
     return product;
 }
 
+
+
+
+
+
+
+
 async function getAllProducts(reqQuery){
     let {category,color,sizes,minPrice,maxPrice,minDiscount,sort,stock,pageNumber,pageSize}
     =reqQuery;
-
-    pageSize=pageSize || 10;
+    console.log("reqQuery",reqQuery);
+    // pageSize=pageSize || 10;
+    pageSize = parseInt(pageSize || '10', 10); // Default to 10 if not provided
 
     let query=Product.find().populate("category");
-
+    console.log(query);
     if(category){
         const existCategory= await Category.findOne({name:category});
         if(existCategory){
@@ -108,35 +116,35 @@ async function getAllProducts(reqQuery){
 
     if(sizes){
         const sizesSet = new Set(sizes);
-        query.query.where("sizes.name").in([...sizesSet]);
+        query=query.where("sizes.name").in([...sizesSet]);
     }
     if(minPrice && maxPrice){
-        query = (await query.where('discountedPrice').gte(minPrice)).lte(maxPrice);
+        query =  query.where('discountedPrice').gte(minPrice).lte(maxPrice);
     }
     if(minDiscount){
-        query = (await query.where("discountPercent")).gte(minDiscount);
+        query =  query.where("discountPercent").gte(minDiscount);
     }
     if(stock){
-        if(stock=="in_stock"){
+        if(stock==="in_stock"){
             query=query.where("quantity").gt(0)
         }
-        else if(stock=="out_of_stock"){
+        else if(stock==="out_of_stock"){
             query=query.where("quantity").gt(1);
         }
     }
     if(sort){
-        const sortDirection = sort==="price_height"?-1:1;
+        const sortDirection = sort==="price_high"?-1:1;
         query=query.sort({discountedPrice:sortDirection})
     }
 
     const totalProducts = await Product.countDocuments(query);
 
-    const skip = (pageNumber-1)*pageSize;
+    const skip = (pageNumber)*pageSize;
     query = query.skip(skip).limit(pageSize);
     const products = await query.exec();
     const totalPages=Math.ceil(totalProducts/pageSize);
-
-    return {content:products,currentPage:pageNumber,totalPages,}
+    console.log({content:products,currentPage:pageNumber,totalPages:totalPages})
+    return {content:products,currentPage:pageNumber,totalPages:totalPages}
 }
 
 async function createMultipleProduct(products){

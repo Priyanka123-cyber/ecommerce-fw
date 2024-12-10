@@ -84,17 +84,17 @@ export default function Product() {
 
   useEffect(()=>{
     const [minPrice,maxPrice]=priceValue===null?[0,10000]:priceValue.split("-").map(Number);
-    
+    let pageSize=10;
     const data = {
       category:param.lavelThree,
       colors:colorValue || [],
-      sizes:sizeValue | [],
-      minPrice,
-      maxPrice,
+      sizes:sizeValue || [],
+      minPrice: minPrice || 0,
+      maxPrice:maxPrice || Infinity,
       minDiscount:discount || 0,
       sort:sortValue || "price_low",
-      pageNumber:pageNumber - 1,
-      pageSize:10,
+      pageNumber:(pageNumber || 1) - 1,
+      pageSize: pageSize.toString().trim(),
       stock:stock
     }
     dispatch(findProducts(data))
