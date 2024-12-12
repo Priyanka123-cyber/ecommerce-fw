@@ -20,7 +20,8 @@ export const color = [
         { value: "brown", label: "Brown" },
         { value: "green", label: "Green" },
         { value: "purple", label: "Purple" },
-        {value:"yellow",label:"Yellow"}
+        {value:"yellow",label:"Yellow"},
+        {value:"black",label:"Black"}
       ],
     },
   

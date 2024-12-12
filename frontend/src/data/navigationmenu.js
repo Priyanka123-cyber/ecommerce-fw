@@ -79,10 +79,10 @@
             ],
             sections: [
               {
-                id: 'clothing',
-                name: 'Clothing',
+                id: 'footwear',
+                name: 'Footwear',
                 items: [
-                  { name: 'mens_kurta',id:"mens_kurta", href:`{men/clothing/mens_kurta}`},
+                  { name: 'Office Wear',id:"office_wear", href:`{men/footwear/office_wear}`},
                   { name: 'Sneakers', href: '#' },
                   { name: 'Loafers', href: '#' },
                   { name: 'Dress Shoes', href: '#' },
