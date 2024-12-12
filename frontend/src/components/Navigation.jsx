@@ -246,7 +246,9 @@ export default function Navigation() {
       </Transition.Root>
 
       <header className="relative bg-white">
-        <p className="flex h-10 items-center justify-center bg-indigo-600 px-4 text-sm font-medium text-white sm:px-6 lg:px-8">
+        <p className="flex h-10 items-center justify-center px-4 text-sm font-medium text-white sm:px-6 lg:px-8"
+          style={{ backgroundColor: '#232637' }}
+        >
           Get free delivery on orders over $100
         </p>
 
@@ -263,7 +265,7 @@ export default function Navigation() {
               </button>
 
               {/* Logo */}
-              <div className="ml-4 flex lg:ml-0">
+              <div className="ml-4 flex lg:ml-0 relative -translate-y-2">
 
                 <span className="sr-only">Your Company</span>
                 <img
@@ -418,7 +420,7 @@ export default function Navigation() {
                         aria-expanded={open ? "true" : undefined}
                         // onClick={handleUserClick}
                         sx={{
-                          bgcolor: deepPurple[500],
+                          bgcolor: '#232637',
                           color: "white",
                           cursor: "pointer",
                         }}
