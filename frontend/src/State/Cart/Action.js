@@ -46,8 +46,8 @@ export const addItemToCart=(reqData)=>async (dispatch)=>{
     }
 }
 
-export const removeCartItem=(reqData,jwt)=>async (dispatch)=>{
-    console.log("reqDAta",reqData);
+export const removeCartItem=(cartItemId,jwt)=>async (dispatch)=>{
+    console.log("cartItemId",cartItemId);
     console.log("jwt",jwt);  // Check if the token is properly structured
 
    
@@ -60,8 +60,8 @@ export const removeCartItem=(reqData,jwt)=>async (dispatch)=>{
                 "Content-Type":"application/json",
             },
         };
-        const {data} = await api.delete(`/api/cart_items/${reqData}`,config)
-        dispatch({type:REMOVE_CART_ITEM_SUCCESS,payload:reqData})
+        const {data} = await api.delete(`/api/cart_items/${cartItemId}`,config)
+        dispatch({type:REMOVE_CART_ITEM_SUCCESS,payload:cartItemId})
 
     } catch (error) {
         dispatch({type:REMOVE_CART_ITEM_FAILURE,payload:error.message})
@@ -69,9 +69,10 @@ export const removeCartItem=(reqData,jwt)=>async (dispatch)=>{
     }
 }
 
-export const updateCartItem=(reqData,jwt)=>async (dispatch)=>{
+export const updateCartItem=(reqData)=>async (dispatch)=>{
    
     console.log("reqDAta",reqData);
+    console.log(reqData.data.data.quantity)
     console.log("jwt",reqData.data.jwt);
     try {
         dispatch({type:UPDATE_CART_ITEM_REQUEST})
@@ -81,11 +82,15 @@ export const updateCartItem=(reqData,jwt)=>async (dispatch)=>{
                 "Content-Type":"application/json",
             },
         };
-        const {data} = await api.put(`/api/cart_items/${reqData.data.cartItemId}`,reqData.data,config)
-        dispatch({type:UPDATE_CART_ITEM_SUCCESS,payload:data})
+        const {data} = await api.put(`/api/cart_items/${reqData.data.cartItemId}`,
+            {quantity: reqData.data.data.quantity},config);
+        dispatch({type:UPDATE_CART_ITEM_SUCCESS,payload:reqData.data})
 
     } catch (error) {
         dispatch({type:UPDATE_CART_ITEM_FAILURE,payload:error.message})
 
     }
 }
+
+
+

@@ -84,10 +84,13 @@ import Typography from '@mui/material/Typography';
 import { useLocation, useNavigate } from 'react-router-dom';
 import DeliveryAddressForm from './DeliveryAddressForm';
 import OrderSummary from './OrderSummary';
+import { useState } from 'react';
 
 const steps = ['Login', 'Delivery Address', 'Order Summary', 'Payment'];
 
 export default function Checkout() {
+  const [activeStep,setActiveStep]=React.useState(1);
+  const [skipped,setSkipped]=React.useState(new Set());
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -96,40 +99,65 @@ export default function Checkout() {
   let step = parseInt(querySearch.get('step'), 10);
   step = isNaN(step) ? 0 : step; // Default to step 0 if query parameter is missing or invalid
 
-  const handleNext = () => {
-    if (step < steps.length - 1) {
-      navigate(`?step=${step + 1}`); // Update query parameter to the next step
-    }
-  };
+  // const handleNext = () => {
+  //   if (step < steps.length - 1) {
+  //     navigate(`?step=${step + 1}`); // Update query parameter to the next step
+  //   }
+  // };
+  const handleNext=()=>{
+    let newSkipped=skipped;
+    setActiveStep((prevActiveStep)=>prevActiveStep+1);
+    setSkipped(newSkipped);
+  }
+  
 
-  const handleBack = () => {
-    if (step > 0) {
-      navigate(`?step=${step - 1}`); // Update query parameter to the previous step
-    }
+  // const handleBack = () => {
+  //   if (step > 0) {
+  //     navigate(`?step=${step - 1}`); // Update query parameter to the previous step
+  //   }
+  // };
+  const handleBack=()=>{
+    navigate(`/checkout?step=${step-1}`)
+  }
+  const handleReset=()=>{
+    setActiveStep(0);
   };
 
   return (
     <div className='px-10 lg:px-20'>
       <Box sx={{ width: '100%' }}>
         <Stepper activeStep={step}>
-          {steps.map((label, index) => (
-            <Step key={label}>
-              <StepLabel>{label}</StepLabel>
+          {steps.map((label, index) => {
+            const stepProps = {};
+            const labelProps = {};
+            return (
+            <Step key={label}{...stepProps}>
+              <StepLabel {...labelProps}>{label}</StepLabel>
             </Step>
-          ))}
+            );
+})}
         </Stepper>
-        {step === steps.length ? (
+        {activeStep === steps.length ? (
           <React.Fragment>
             <Typography sx={{ mt: 2, mb: 1 }}>
               All steps completed - you&apos;re finished
             </Typography>
+            <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
+              <Box sx={{flex:"1 1 auto"}}/>
+              <Button
+              
+                onClick={handleReset}
+              >
+                Reset
+              </Button>
+              </Box>
           </React.Fragment>
         ) : (
           <React.Fragment>
             <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
               <Button
                 color="inherit"
-                disabled={step === 0}
+                disabled={step == 1}
                 onClick={handleBack}
                 sx={{ mr: 1 }}
               >
@@ -138,8 +166,8 @@ export default function Checkout() {
               
              
             </Box>
-            <div className='mt-10'>
-              {step === 1 ? <DeliveryAddressForm /> : <OrderSummary />}
+            <div className='my-5'>
+              {step == 1 ? <DeliveryAddressForm handleNext={handleNext} /> : <OrderSummary />}
             </div>
           </React.Fragment>
         )}
