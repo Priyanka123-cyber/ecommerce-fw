@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
-const {Schema} = mongoose;
+// const {Schema} = mongoose;
 
-const orderSchema = new Schema({
+const orderSchema = new mongoose.Schema({
     user:{
         type:mongoose.Schema.Types.ObjectId,
         ref:'users'
@@ -14,14 +14,14 @@ const orderSchema = new Schema({
     orderDate:{
         type:Date,
         required:true,
-        default:Date.now()
+        default:Date.now
     },
     deliveryDate:{
         type:Date,
     },
     shippingAddress:{
         type:mongoose.Schema.Types.ObjectId,
-        ref:'addresses,'
+        ref:'addresses'
     },
     paymentDetails:{
         paymentMethod:{
@@ -61,7 +61,7 @@ const orderSchema = new Schema({
     },
     createdAt:{
         type:Date,
-        default:Date.now()
+        default:Date.now
     },
 })
 

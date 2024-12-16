@@ -4,11 +4,16 @@ const Order= require("../models/orderModel");
 const OrderItem=require("../models/orderItems");
 
 
+
+
 async function createOrder(user,shipAddress){
+    console.log("shipAddress1",shipAddress);
     let address;
+    
     if(shipAddress._id){
         let existAddress= await Address.findById(shipAddress._id);
         address=existAddress;
+        console.log("shipAddress",address)
     }
     else{
         address= new Address(shipAddress);
@@ -91,11 +96,14 @@ async function findOrderById(orderId){
     const order = await Order.findById(orderId)
     .populate("user")
     .populate({path:"orderItems",populate:{path:"product"}})
-    .populate("shippingAddress")
+    .populate("shippingAddress");
+    console.log("order for id",order);
 
     return order
 
 }
+
+
 
 async function usersOrderHistory(userId){
     try {

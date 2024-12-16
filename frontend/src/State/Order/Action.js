@@ -42,9 +42,10 @@ export const createOrder = (reqData) => async (dispatch) => {
 };
 
 export const getOrderById = (orderId) => async (dispatch) => {
-    dispatch({type:GET_ORDER_BY_ID_REQUEST});
+   
     // console.log('order dat',reqData);
     try {
+        dispatch({type:GET_ORDER_BY_ID_REQUEST});
         console.log("orderId",orderId);
         const config={
             headers:{

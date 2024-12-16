@@ -9,7 +9,8 @@ const Cart = () => {
     const navigate = useNavigate();
     const { cart } = useSelector(store => store)
     const dispatch = useDispatch();
-    const jwt = localStorage.getItem("jwt")
+    const jwt = localStorage.getItem("jwt");
+    console.log("cartcart",cart.cart);
     const handleCheckout = () => {
         navigate('/checkout?step=1')
     }

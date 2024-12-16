@@ -20,14 +20,14 @@ const OrderSummary = () => {
   return (
     <div>
         <div className='p-5 shadow-lg rounded-s-md border'>
-            <AddressCard address={order.order?.user?.address[0]}/>
+            <AddressCard address={order.order?.shippingAddress}/>
             
         </div>
         <div>
             <div className='lg:grid grid-cols-3  relative'>
                 <div className='col-span-2'>
-                  {order.orders?.orderItems?.map((item)=>
-                     <CartItem  item={item}/>)}  
+                  {order.order?.orderItems?.map((item)=>
+                     <CartItem key={item._id} item={item}/>)}  
                 </div>
                 <div className='px-5 sticky top-0 h-[100vh] mt-5 lg:mt-0'>
                     <div className='border'>
@@ -48,7 +48,7 @@ const OrderSummary = () => {
                             </div>
                             <div className='flex justify-between pt-3 font-bold'>
                                 <span>Total Amount</span>
-                                <span className='text-green-600'>Rs{order.order?.totalDiscountedPrice}</span>
+                                <span className='text-green-600'>Rs{order.order?.totalPrice}</span>
                             </div>
                         </div>
                         <Button variant='contained'className='w-full mt-5' sx={{ px: "2.5rem", py: ".7rem", bgcolor: "#9155fd" }}>

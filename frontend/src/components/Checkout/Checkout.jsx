@@ -74,6 +74,12 @@
 //     </div>
 //   );
 // }
+
+
+
+
+
+
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Stepper from '@mui/material/Stepper';
@@ -167,7 +173,7 @@ export default function Checkout() {
              
             </Box>
             <div className='my-5'>
-              {step == 1 ? <DeliveryAddressForm handleNext={handleNext} /> : <OrderSummary />}
+              {step == 1? <DeliveryAddressForm handleNext={handleNext} /> : <OrderSummary />}
             </div>
           </React.Fragment>
         )}
