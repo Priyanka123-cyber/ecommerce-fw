@@ -1,15 +1,15 @@
 
 export const mainCarouselData=[
     {
-        image:"https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/2bbcfa99737217.5ef9be3dbb9a9.jpg",
+        image:"https://cdn.pixelbin.io/v2/black-bread-289bfa/-6ZJSm/t.resize(w:1600)/clarks-banner/1710138111Clarks_Web_September-02.webp?compress=true&q=70",
         path:""
     },
     {
-        image:"https://www.couponcodegroup.com/wp-content/uploads/2018/02/womens_foorear-960x500.jpg",
+        image:"https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-in-Library/default/dwf9a0accf/menu/3840x2160-px-(MYW---Desktop-Power-Hero-banner).jpg?sw=2560&q=100",
         path:""
     },
     {
-        image:"https://i.ytimg.com/vi/Rt7usOrQJeE/maxresdefault.jpg",
+        image:"https://cdn.pixelbin.io/v2/black-bread-289bfa/-6ZJSm/t.resize(w:1600)/clarks-banner/1711955372Clarks-April-eComm-banner---Internal_1440-x-480_web.webp?compress=true&q=70",
         path:""
     },
     {

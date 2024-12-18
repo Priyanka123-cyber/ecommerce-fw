@@ -18,6 +18,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import AuthModal from "../Auth/AuthModal";
 import { useDispatch, useSelector } from "react-redux";
 import { getUser, logout } from "../State/Auth/Action";
+import { getCart } from "../State/Cart/Action";
 
 
 function classNames(...classes) {
@@ -32,9 +33,13 @@ export default function Navigation() {
   const [anchorEl, setAnchorEl] = useState(null);
   const openUserMenu = Boolean(anchorEl);
   const jwt = localStorage.getItem("jwt");
-  const {auth}=useSelector(store=>store)
+  const {auth,cart}=useSelector(store=>store)
   const dispatch = useDispatch()
   const location = useLocation();
+  
+
+ 
+  
 
 
   const handleUserClick = (event) => {
@@ -59,6 +64,7 @@ export default function Navigation() {
   useEffect(()=>{
     if(jwt){
         dispatch(getUser(jwt))
+        dispatch(getCart(jwt))
     }   
   },[jwt,auth.jwt])
 
@@ -202,7 +208,7 @@ export default function Navigation() {
                   </Tab.Panels>
                 </Tab.Group>
 
-                <div className="space-y-6 border-t border-gray-200 px-4 py-6">
+                {/* <div className="space-y-6 border-t border-gray-200 px-4 py-6">
                   {navigation.pages.map((page) => (
                     <div key={page.name} className="flow-root">
                       <a
@@ -213,7 +219,7 @@ export default function Navigation() {
                       </a>
                     </div>
                   ))}
-                </div>
+                </div> */}
 
                 <div className="space-y-6 border-t border-gray-200 px-4 py-6">
                   <div className="flow-root">
@@ -249,7 +255,7 @@ export default function Navigation() {
         <p className="flex h-10 items-center justify-center px-4 text-sm font-medium text-white sm:px-6 lg:px-8"
           style={{ backgroundColor: '#232637' }}
         >
-          Get free delivery on orders over $100
+          Get free delivery on orders over ₹5000
         </p>
 
         <nav aria-label="Top" className="mx-auto">
@@ -267,7 +273,7 @@ export default function Navigation() {
               {/* Logo */}
               <div className="ml-4 flex lg:ml-0 relative -translate-y-2">
 
-                <span className="sr-only">Your Company</span>
+                <span className="sr-only">Shoztop</span>
                 <img
                   src="/public/shoztop.png"
                   alt="Shoztop"
@@ -398,7 +404,7 @@ export default function Navigation() {
                     </Popover>
                   ))}
 
-                  {navigation.pages.map((page) => (
+                  {/* {navigation.pages.map((page) => (
                     <a
                       key={page.name}
                       href={page.href}
@@ -406,7 +412,7 @@ export default function Navigation() {
                     >
                       {page.name}
                     </a>
-                  ))}
+                  ))} */}
                 </div>
               </Popover.Group>
 
@@ -481,6 +487,7 @@ export default function Navigation() {
                 {/* Cart */}
                 <div className="ml-4 flow-root lg:ml-6">
                   <Button
+                  onClick={()=>navigate("/cart")}
 
                     className="group -m-2 flex items-center p-2"
                   >
@@ -489,7 +496,7 @@ export default function Navigation() {
                       aria-hidden="true"
                     />
                     <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
-                      2
+                      {cart.cart?.totalItem}
                     </span>
                     <span className="sr-only">items in cart, view bag</span>
                   </Button>

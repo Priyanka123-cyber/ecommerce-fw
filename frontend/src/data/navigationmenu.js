@@ -8,44 +8,31 @@
               {
                 name: 'New Arrivals',
                 href: '#',
-                imageSrc: 'https://tailwindui.com/plus/img/ecommerce-images/mega-menu-category-01.jpg',
+                imageSrc: 'https://cdn.pixelbin.io/v2/black-bread-289bfa/-6ZJSm/t.resize(w:257)/clarks-category/1708508181Clarks_Top_Banner_Internal_279_x_279_210224_2.webp',
                 imageAlt: 'Models sitting back to back, wearing Basic Tee in black and bone.',
               },
               {
-                name: 'Basic Tees',
+                name: 'Smart Styles',
                 href: '#',
-                imageSrc: 'https://tailwindui.com/plus/img/ecommerce-images/mega-menu-category-02.jpg',
+                imageSrc: 'https://lscdn.azureedge.net/biz-live/img/11417071-11417071-8722cc7e.jpeg',
                 imageAlt: 'Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees.',
               },
             ],
             sections: [
               {
-                id: 'clothing',
-                name: 'clothing',
+                id: 'footwear',
+                name: 'Footwear',
                 items: [
-                  { name:'Tops',id:"top", href: `{women/clothing/tops}` },
-                  { name: 'Heels', href: '#' },
-                  { name: 'Flats', href: '#' },
-                  { name: 'Sneakers & Sports Shoes', href: '#' },
-                  { name: 'Sandals & Slides', href: '#' },
-                  { name: 'Mules & Clogs', href: '#' },
-                  { name: 'Slippers', href: '#' },
-                  { name: 'Work & Formal Footwear', href: '#' },
-                  { name: 'Browse All', href: '#' },
+                  { name:'Heels',id:"heels", href: `{women/footwear/heels}` },
+                  { name: 'Flats', id:"flats", href: `{women/footwear/flats}` },
+                  { name: 'Casual Shoes', id:"casual_shoes", href:`{women/footwear/casual_shoes}`},
+                  { name: 'Sports Shoes',id:"sports_shoes", href: `{women/footwear/sports_shoes}`},
+                  { name: 'Ethnic Footwear',id:"ethnic", href: `{women/footwear/ethnic}` },
+                  { name: 'Boots',id:"boots", href:`{women/footwear/boots}` },
+                 
                 ],
               },
-              // {
-              //   id: 'accessories',
-              //   name: 'Accessories',
-              //   items: [
-              //     { name: 'Watches', href: '#' },
-              //     { name: 'Wallets', href: '#' },
-              //     { name: 'Bags', href: '#' },
-              //     { name: 'Sunglasses', href: '#' },
-              //     { name: 'Hats', href: '#' },
-              //     { name: 'Belts', href: '#' },
-              //   ],
-              // },
+              
               {
                 id: 'brands',
                 name: 'Brands',
@@ -66,13 +53,13 @@
               {
                 name: 'New Arrivals',
                 href: '#',
-                imageSrc: 'https://tailwindui.com/plus/img/ecommerce-images/product-page-04-detail-product-shot-01.jpg',
+                imageSrc: 'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcShyMYWatLDmAY3sMnu5G29kz3VQdzKyqCBQO1sImgDUJwl4VUXS18ExdQCNDheHJxX3Y6VtIG2WCirFxU_adaoYa2YTP6OtfQZms9c6NCZo3YNbwNvWxQT&usqp=CAE',
                 imageAlt: 'Drawstring top with elastic loop closure and textured interior padding.',
               },
               {
-                name: 'Artwork Tees',
+                name: 'Formal Styles',
                 href: '#',
-                imageSrc: 'https://tailwindui.com/plus/img/ecommerce-images/category-page-02-image-card-06.jpg',
+                imageSrc: 'https://th.bing.com/th/id/OIP.xI7e-qA9bwDX1Rk_mlNVTgHaEl?rs=1&pid=ImgDetMain',
                 imageAlt:
                   'Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.',
               },
@@ -83,28 +70,14 @@
                 name: 'Footwear',
                 items: [
                   { name: 'Office Wear',id:"office_wear", href:`{men/footwear/office_wear}`},
-                  { name: 'Sneakers', href: '#' },
-                  { name: 'Loafers', href: '#' },
-                  { name: 'Dress Shoes', href: '#' },
-                  { name: 'Casual Shoes', href: '#' },
-                  { name: 'Sandals & Slides', href: '#' },
-                  { name: 'Slippers', href: '#' },
-                  { name: 'Athletic Shoes', href: '#' },
-                  { name: 'Browse All', href: '#' },
+                  { name: 'Casual Shoes',id:"casual_shoes", href:`{men/footwear/casual_shoes}` },
+                  { name: 'Sports Shoes',id:"office_wear", href:`{men/footwear/sports_shoes}` },
+                  { name: 'Ethnic Footwear', id:"ethnic_footwear", href:`{men/footwear/ethnic_footwear}` },
+                  { name: 'Boots',id:"boots", href:`{men/footwear/boots}` },
+                  { name: 'Sandals and Slides',id:"sandals", href:`{men/footwear/sandals}`},
                 ],
               },
-              // {
-              //   id: 'accessories',
-              //   name: 'Accessories',
-              //   items: [
-              //     { name: 'Watches', href: '#' },
-              //     { name: 'Wallets', href: '#' },
-              //     { name: 'Bags', href: '#' },
-              //     { name: 'Sunglasses', href: '#' },
-              //     { name: 'Hats', href: '#' },
-              //     { name: 'Belts', href: '#' },
-              //   ],
-              // },
+              
               {
                 id: 'brands',
                 name: 'Brands',
@@ -118,8 +91,5 @@
             ],
           },
         ],
-        pages: [
-          { name: 'Company', href: '#' },
-          { name: 'Stores', href: '#' },
-        ],
+        
       }

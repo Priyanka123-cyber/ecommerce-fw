@@ -15,10 +15,23 @@ async function createReview(reqData,user){
     return await review.save();
 }
 
-async function getAllReview(productId){
-    const product = await productService.findProductById(reqData.productId);
-    return await Review.find({product:productId}).populate("user");
-}
+// async function getAllReview(productId){
+//     const product = await productService.findProductById(reqData.productId);
+//     return await Review.find({product:productId}).populate("user");
+// }
+
+async function getAllReview(productId) {
+    // Validate productId
+    const product = await productService.findProductById(productId); // Use productId directly
+  
+    if (!product) {
+      throw new Error("Product not found");
+    }
+  
+    // Fetch and populate reviews
+    return await Review.find({ product: productId }).populate("user");
+  }
+  
 
 module.exports={createReview,
     getAllReview

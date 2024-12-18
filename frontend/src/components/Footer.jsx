@@ -5,7 +5,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 
 const Footer = () => {
   return (
-    <Grid className='bg-black text-white mt-10 text-center' container color={'white' } sx={{ bgcolor: 'black', color: 'white', py: 3 }}>
+    <Grid className='bg-gray-300 text-black mt-10 text-center' container color={'black' } sx={{ color: 'black',  py: 3 }}>
       <Grid  item xs={12} sm={6} md={3}>
         <Typography className='pb-5' variant="h6" gutterBottom>
           Company
@@ -78,21 +78,21 @@ const Footer = () => {
         <Box sx={{ mt: 2 }}>
         <IconButton
           href="https://facebook.com" 
-          sx={{color:"#ffff"}}
+          sx={{color:"black"}}
           aria-label="Facebook"
         >
           <FacebookIcon />
         </IconButton>
         <IconButton 
           href="https://x.com" 
-          sx={{color:"#ffff"}}
+          sx={{color:"black"}}
           aria-label="Twitter"
         >
           <XIcon />
         </IconButton>
         <IconButton 
           href="https://instagram.com" 
-          sx={{color:"#ffff"}}
+          sx={{color:"black"}}
           aria-label="Instagram"
         >
           <InstagramIcon />
