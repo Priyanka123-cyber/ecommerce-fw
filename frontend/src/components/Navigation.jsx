@@ -269,9 +269,11 @@ export default function Navigation() {
 
                 <span className="sr-only">Your Company</span>
                 <img
-                  src="https://s3.amazonaws.com/cdn.designcrowd.com/blog/2019/07/45-shoe-logos/images/Shadow.jpg"
-                  alt="Shopwithzosh"
-                  className="h-8 w-8 mr-2"
+                  src="/public/shoztop.png"
+                  alt="Shoztop"
+                  className="h-40 w-80 mr-2 object-contain"
+                  quality={300}
+                  
                 />
 
               </div>

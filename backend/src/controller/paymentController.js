@@ -3,7 +3,7 @@ const paymentService=require('../services/paymentService');
 const createPaymentLink=async(req,res)=>{
     try {
         const paymentLink=await paymentService.createPaymentLink(req.params.id);
-        return res.status(200).send(paymenLink);
+        return res.status(200).send(paymentLink);
     } catch (error) {
         return res.status(500).send(error.message)
     }

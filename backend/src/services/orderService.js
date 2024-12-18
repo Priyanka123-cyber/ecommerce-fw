@@ -13,6 +13,7 @@ async function createOrder(user,shipAddress){
     if(shipAddress._id){
         let existAddress= await Address.findById(shipAddress._id);
         address=existAddress;
+        console.log("existAddress",existAddress);
         console.log("shipAddress",address)
     }
     else{
@@ -52,8 +53,17 @@ async function createOrder(user,shipAddress){
         shippingAddress:address,
 
     })
-    const savedOrder = await createdOrder.save()
-    return savedOrder;
+    const savedOrder = await createdOrder.save();
+    const populatedOrder = await Order.findById(savedOrder._id)
+  .populate({
+    path: 'shippingAddress',
+    select: 'firstName lastName streetAddress city state zipCode', // Add the fields you need
+  })
+  .exec();
+
+    // const populateOrder=await Order.findById(savedOrder._id).populate("shippingAddress").exec();
+    // return savedOrder;
+    return populatedOrder;
 }
 
 async function placeOrder(orderId){

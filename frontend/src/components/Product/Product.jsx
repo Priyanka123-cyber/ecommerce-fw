@@ -102,6 +102,7 @@ export default function Product() {
       maxPrice:maxPrice || Infinity,
       minDiscount:discount || 0,
       sort:sortValue || "price_low",
+      // pageNumber:pageNumber,
       pageNumber:(pageNumber || 1) - 1,
       pageSize:10,
       // pageSize: pageSize.toString().trim(),

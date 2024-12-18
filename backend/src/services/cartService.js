@@ -57,12 +57,71 @@ async function addCartItem(userId, req) {
         const createdCartItem=await cartItem.save();
         cart.cartItems.push(createdCartItem);
         await cart.save();
-        return isPresent
+        return createdCartItem;
      }
+     return isPresent
     } catch (error) {
         throw new Error(error.message)
     }
 }
+
+// async function addCartItem(userId, req) {
+//     try {
+//         // Find the cart associated with the user
+//         const cart = await Cart.findOne({ user: userId });
+//         if (!cart) {
+//             throw new Error("Cart not found");
+//         }
+
+//         // Find the product by its ID
+//         const product = await Product.findById(req.productId);
+//         if (!product) {
+//             throw new Error("Product not found");
+//         }
+
+//         // Check if the product is already in the cart for this user
+//         const isPresent = await CartItem.findOne({
+//             cart: cart._id,
+//             product: product._id,
+//             userId
+//         });
+
+//         if (!isPresent) {
+//             // Create a new cart item if it doesn't exist
+//             const cartItem = new CartItem({
+//                 product: product._id,
+//                 cart: cart._id,
+//                 quantity: 1,
+//                 userId,
+//                 price: product.price,
+//                 size: req.size,
+//                 discountedPrice: product.discountedPrice
+//             });
+
+//             // Save the new cart item
+//             const createdCartItem = await cartItem.save();
+
+//             // Add the cart item to the user's cart
+//             cart.cartItems.push(createdCartItem);
+//             await cart.save();
+
+//             // Return the created cart item and its details
+//             return {
+//                 message: "Cart item added successfully",
+//                 cartItem: createdCartItem
+//             };
+//         } else {
+//             // Return the existing cart item if it's already present
+//             return {
+//                 message: "Cart item already exists",
+//                 cartItem: isPresent
+//             };
+//         }
+//     } catch (error) {
+//         throw new Error(error.message);
+//     }
+// }
+
 
 
 
