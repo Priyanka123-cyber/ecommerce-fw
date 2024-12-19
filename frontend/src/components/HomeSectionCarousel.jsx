@@ -6,7 +6,7 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { Button } from '@mui/material';
 
 
-const HomeSectionCarousel = ({data,sectionName}) => {
+const HomeSectionCarousel = ({ data, sectionName }) => {
     const [activeIndex, setActiveIndex] = useState(0);
     const responsive = {
         0: { items: 1 },

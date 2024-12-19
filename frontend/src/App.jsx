@@ -21,21 +21,9 @@ function App() {
   return (
     <div className=''>
       <Routes>
-            <Route path='/*' element={<CustomerRouters/>}></Route>
-
-        </Routes>
-     {/* <Navigation/> */}
-     <div>
-     {/* <HomePage/> 
-     <Product/>
-     <ProductDetails/>
-      <Cart/>
-     <Checkout/>
-     <Order/>
-     <OrderDetail/> */}
-     </div>
-     {/* <Footer/> */}
-     </div>
+        <Route path='/*' element={<CustomerRouters />}></Route>
+      </Routes>
+    </div>
   )
 }
 
