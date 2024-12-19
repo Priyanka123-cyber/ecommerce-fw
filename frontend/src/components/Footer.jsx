@@ -5,8 +5,8 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 
 const Footer = () => {
   return (
-    <Grid className='bg-gray-300 text-black mt-10 text-center' container color={'black' } sx={{ color: 'black',  py: 3 }}>
-      <Grid  item xs={12} sm={6} md={3}>
+    <Grid className='bg-gray-300 text-black mt-10 text-center' container color={'black'} sx={{ color: 'black', py: 3 }}>
+      <Grid item xs={12} sm={6} md={3}>
         <Typography className='pb-5' variant="h6" gutterBottom>
           Company
         </Typography>
@@ -76,29 +76,29 @@ const Footer = () => {
           &copy; 2024 Shoztop. All rights reserved.
         </Typography>
         <Box sx={{ mt: 2 }}>
-        <IconButton
-          href="https://facebook.com" 
-          sx={{color:"black"}}
-          aria-label="Facebook"
-        >
-          <FacebookIcon />
-        </IconButton>
-        <IconButton 
-          href="https://x.com" 
-          sx={{color:"black"}}
-          aria-label="Twitter"
-        >
-          <XIcon />
-        </IconButton>
-        <IconButton 
-          href="https://instagram.com" 
-          sx={{color:"black"}}
-          aria-label="Instagram"
-        >
-          <InstagramIcon />
-        </IconButton>
-      </Box>
-        
+          <IconButton
+            href="https://facebook.com"
+            sx={{ color: "black" }}
+            aria-label="Facebook"
+          >
+            <FacebookIcon />
+          </IconButton>
+          <IconButton
+            href="https://x.com"
+            sx={{ color: "black" }}
+            aria-label="Twitter"
+          >
+            <XIcon />
+          </IconButton>
+          <IconButton
+            href="https://instagram.com"
+            sx={{ color: "black" }}
+            aria-label="Instagram"
+          >
+            <InstagramIcon />
+          </IconButton>
+        </Box>
+
       </Grid>
     </Grid>
   );

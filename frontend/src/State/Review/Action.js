@@ -1,31 +1,28 @@
-
-
-
 import {
-    CREATE_REVIEW_SUCCESS,
-    CREATE_REVIEW_FAILURE,
-    GET_ALL_REVIEWS_SUCCESS,
-    GET_ALL_REVIEWS_FAILURE,
-    CREATE_RATING_SUCCESS,
-    CREATE_RATING_FAILURE,
-    GET_ALL_RATINGS_SUCCESS,
-    GET_ALL_RATINGS_FAILURE
-  } from './ActionType';
-import {api} from '../../config/apiConfig';
+  CREATE_REVIEW_SUCCESS,
+  CREATE_REVIEW_FAILURE,
+  GET_ALL_REVIEWS_SUCCESS,
+  GET_ALL_REVIEWS_FAILURE,
+  CREATE_RATING_SUCCESS,
+  CREATE_RATING_FAILURE,
+  GET_ALL_RATINGS_SUCCESS,
+  GET_ALL_RATINGS_FAILURE
+} from './ActionType';
+import { api } from '../../config/apiConfig';
 const jwt = localStorage.getItem("jwt");
 
 export const createReview = (resData) => {
-  console.log("create review req ",resData)
+  console.log("create review req ", resData)
   return async (dispatch) => {
     try {
-      const response = await api.post('/api/reviews/create', 
+      const response = await api.post('/api/reviews/create',
         resData);
 
       dispatch({
         type: CREATE_REVIEW_SUCCESS,
         payload: response.data
       });
-      console.log("create review ",response.data)
+      console.log("create review ", response.data)
     } catch (error) {
       dispatch({
         type: CREATE_REVIEW_FAILURE,
@@ -38,19 +35,19 @@ export const createReview = (resData) => {
 export const getAllReviews = (productId) => {
   return async (dispatch) => {
     try {
-        const config={
-            headers:{
-                Authorization:`Bearer ${jwt}`,
-                "Content-Type":"application/json",
-            },
-        };
-      const response = await api.get(`/api/reviews/product/${productId}`,config);
+      const config = {
+        headers: {
+          Authorization: `Bearer ${jwt}`,
+          "Content-Type": "application/json",
+        },
+      };
+      const response = await api.get(`/api/reviews/product/${productId}`, config);
 
       dispatch({
         type: GET_ALL_REVIEWS_SUCCESS,
         payload: response.data
       });
-      console.log("all review ",response.data)
+      console.log("all review ", response.data)
     } catch (error) {
       dispatch({
         type: GET_ALL_REVIEWS_FAILURE,
@@ -65,7 +62,7 @@ export const getAllReviews = (productId) => {
 export const createRating = (resData) => {
   return async (dispatch) => {
     try {
-      const response = await api.post('/api/ratings/create', 
+      const response = await api.post('/api/ratings/create',
         resData);
 
       dispatch({
@@ -86,14 +83,14 @@ export const getAllRatings = (productId) => {
   return async (dispatch) => {
     try {
       const response = await api.get(`/api/ratings/product/${productId}`, {
-       
+
       });
 
       dispatch({
         type: GET_ALL_RATINGS_SUCCESS,
         payload: response.data
       });
-      console.log("all rating ",response.data)
+      console.log("all rating ", response.data)
     } catch (error) {
       dispatch({
         type: GET_ALL_RATINGS_FAILURE,

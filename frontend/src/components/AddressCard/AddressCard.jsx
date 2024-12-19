@@ -1,7 +1,6 @@
 import React from 'react'
 
 const AddressCard = ({address}) => {
-  // console.log("address",address);
   return (
     <div>
         <div className='space-y-3'>

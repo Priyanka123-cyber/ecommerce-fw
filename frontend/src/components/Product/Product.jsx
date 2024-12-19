@@ -102,10 +102,8 @@ export default function Product() {
       maxPrice:maxPrice || Infinity,
       minDiscount:discount || 0,
       sort:sortValue || "price_low",
-      // pageNumber:pageNumber,
       pageNumber:(pageNumber || 1) - 1,
       pageSize:10,
-      // pageSize: pageSize.toString().trim(),
       stock:stock
     }
     dispatch(findProducts(data))
@@ -333,21 +331,11 @@ export default function Product() {
               {/* Product grid */}
               <div className="lg:col-span-4 w-full">
                 <div className='flex flex-wrap justify-center bg-white py-5'>
-              
-
                   {products.products && products.products?.content?.map((item,index) => (
-                    
                     <ProductCard 
                      key={index} 
                      product={item} />
                   ))}
-
-{/* {product?.products?.content?.map((item, index) => (
-    <ProductCard 
-      key={index} 
-      product={item} />
-)) || <div>No products available</div>} */}
-
                 </div>
               </div>
             </div>

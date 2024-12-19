@@ -7,26 +7,28 @@ import { getCart } from '../../State/Cart/Action'
 
 const Cart = () => {
     const navigate = useNavigate();
+    // Fetch cart data from Redux store
     const { cart } = useSelector(store => store)
     const dispatch = useDispatch();
     const jwt = localStorage.getItem("jwt");
-    console.log("cartcart",cart.cart);
+    console.log("cartcart", cart.cart);
     const handleCheckout = () => {
         navigate('/checkout?step=1')
     }
+    // Fetch cart data whenever cart state changes
     useEffect(() => {
         dispatch(getCart(jwt));
-    }, [cart.updateCartItem,cart.deleteCartItem])
+    }, [cart.updateCartItem, cart.deleteCartItem])
     return (
         <div>
             <div className='lg:grid grid-cols-3 lg:px-16 relative'>
                 <div className='col-span-2'>
                     {cart.cart?.cartItems.map((item, index) => (
-                        <CartItem key={index} 
-                        item={item} />
+                        <CartItem key={index}
+                            item={item} />
                     ))}
-
                 </div>
+                {/* Price Details and Checkout section */}
                 <div className='px-5 sticky top-0 h-[100vh] mt-5 lg:mt-0'>
                     <div className='border'>
                         <p className='uppercase font-bold opacity-60 pb-4'>Price Details</p>
@@ -42,7 +44,7 @@ const Cart = () => {
                                 <span >Discount</span>
                                 <span className='text-green-600'>
                                     ₹{cart.cart?.discount}
-                                    </span>
+                                </span>
                             </div>
                             <div className='flex justify-between pt-3'>
                                 <span >Delivery charge</span>
@@ -55,6 +57,7 @@ const Cart = () => {
                                 }</span>
                             </div>
                         </div>
+                        {/* Checkout button */}
                         <Button onClick={handleCheckout} variant='contained' className='w-full mt-5' sx={{ px: "2.5rem", py: ".7rem", bgcolor: "#9155fd" }}>
                             Checkout
                         </Button>

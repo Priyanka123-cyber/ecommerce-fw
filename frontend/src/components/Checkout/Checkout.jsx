@@ -1,85 +1,3 @@
-// import * as React from 'react';
-// import Box from '@mui/material/Box';
-// import Stepper from '@mui/material/Stepper';
-// import Step from '@mui/material/Step';
-// import StepLabel from '@mui/material/StepLabel';
-// import Button from '@mui/material/Button';
-// import Typography from '@mui/material/Typography';
-// import { useLocation } from 'react-router-dom';
-// import DeliveryAddressForm from './DeliveryAddressForm';
-// import OrderSummary from './OrderSummary';
-
-
-// const steps = ['Login', 'Delivery Address', 'Order Summary','Payment'];
-
-// export default function Checkout() {
-//   const [activeStep, setActiveStep] = React.useState(0);
-//   const location=useLocation();
-//   const querySearch= new URLSearchParams(location.search);
-//   const step=querySearch.get("step")
-
-//   const handleNext = () => {
-//     setActiveStep((prevActiveStep) => prevActiveStep + 1);
-//   };
-
-//   const handleBack = () => {
-//     setActiveStep((prevActiveStep) => prevActiveStep - 1);
-//   };
-
-
-
-//   return (
-//     <div className='px-10 lg:px-20'>
-//       <Box sx={{ width: '100%' }}>
-//         <Stepper activeStep={step}>
-//           {steps.map((label, index) => {
-//             const stepProps = {};
-//             const labelProps = {};
-//             return (
-//               <Step key={label} {...stepProps}>
-//                 <StepLabel {...labelProps}>{label}</StepLabel>
-//               </Step>
-//             );
-//           })}
-//         </Stepper>
-//         {activeStep === steps.length ? (
-//           <React.Fragment>
-//             <Typography sx={{ mt: 2, mb: 1 }}>
-//               All steps completed - you&apos;re finished
-//             </Typography>
-//           </React.Fragment>
-//         ) : (
-//           <React.Fragment>
-            
-//             <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
-//               <Button
-//                 color="inherit"
-//                 disabled={activeStep === 0}
-//                 onClick={handleBack}
-//                 sx={{ mr: 1 }}
-//               >
-//                 Back
-//               </Button>
-//               <Box sx={{ flex: '1 1 auto' }} />
-//               <Button onClick={handleNext}>
-//                 {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
-//               </Button>
-//             </Box>
-//             <div>
-//               {step==2?<DeliveryAddressForm/>:<OrderSummary/>}
-//             </div>
-//           </React.Fragment>
-//         )}
-//       </Box>
-//     </div>
-//   );
-// }
-
-
-
-
-
-
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Stepper from '@mui/material/Stepper';
@@ -95,37 +13,30 @@ import { useState } from 'react';
 const steps = ['Login', 'Delivery Address', 'Order Summary', 'Payment'];
 
 export default function Checkout() {
-  const [activeStep,setActiveStep]=React.useState(1);
-  const [skipped,setSkipped]=React.useState(new Set());
+  // State variables for managing active step and skipped steps
+  const [activeStep, setActiveStep] = React.useState(1);
+  const [skipped, setSkipped] = React.useState(new Set());
   const location = useLocation();
   const navigate = useNavigate();
 
   // Get the current step from the query parameter
   const querySearch = new URLSearchParams(location.search);
   let step = parseInt(querySearch.get('step'), 10);
-  step = isNaN(step) ? 0 : step; // Default to step 0 if query parameter is missing or invalid
 
-  // const handleNext = () => {
-  //   if (step < steps.length - 1) {
-  //     navigate(`?step=${step + 1}`); // Update query parameter to the next step
-  //   }
-  // };
-  const handleNext=()=>{
-    let newSkipped=skipped;
-    setActiveStep((prevActiveStep)=>prevActiveStep+1);
+
+  step = isNaN(step) ? 0 : step; // Default to step 0 if query parameter is missing or invalid
+  // Function to move to the next step
+  const handleNext = () => {
+    let newSkipped = skipped;
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
     setSkipped(newSkipped);
   }
-  
-
-  // const handleBack = () => {
-  //   if (step > 0) {
-  //     navigate(`?step=${step - 1}`); // Update query parameter to the previous step
-  //   }
-  // };
-  const handleBack=()=>{
-    navigate(`/checkout?step=${step-1}`)
+// Function to go back to the previous step
+  const handleBack = () => {
+    navigate(`/checkout?step=${step - 1}`)
   }
-  const handleReset=()=>{
+   // Function to reset the checkout process
+  const handleReset = () => {
     setActiveStep(0);
   };
 
@@ -137,43 +48,41 @@ export default function Checkout() {
             const stepProps = {};
             const labelProps = {};
             return (
-            <Step key={label}{...stepProps}>
-              <StepLabel {...labelProps}>{label}</StepLabel>
-            </Step>
+              <Step key={label}{...stepProps}>
+                <StepLabel {...labelProps}>{label}</StepLabel>
+              </Step>
             );
-})}
+          })}
         </Stepper>
-        {activeStep === steps.length ? (
+        {activeStep === steps.length ? (// Check if all steps are completed
           <React.Fragment>
             <Typography sx={{ mt: 2, mb: 1 }}>
               All steps completed - you&apos;re finished
             </Typography>
             <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
-              <Box sx={{flex:"1 1 auto"}}/>
+              <Box sx={{ flex: "1 1 auto" }} />
               <Button
-              
+
                 onClick={handleReset}
               >
                 Reset
               </Button>
-              </Box>
+            </Box>
           </React.Fragment>
         ) : (
           <React.Fragment>
             <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
               <Button
                 color="inherit"
-                disabled={step == 1}
-                onClick={handleBack}
+                disabled={step == 1}// Disable back button on the first step
+                onClick={handleBack}// Navigate back to the previous step
                 sx={{ mr: 1 }}
               >
                 Back
               </Button>
-              
-             
             </Box>
             <div className='my-5'>
-              {step == 1? <DeliveryAddressForm handleNext={handleNext} /> : <OrderSummary />}
+              {step == 1 ? <DeliveryAddressForm handleNext={handleNext} /> : <OrderSummary />}
             </div>
           </React.Fragment>
         )}

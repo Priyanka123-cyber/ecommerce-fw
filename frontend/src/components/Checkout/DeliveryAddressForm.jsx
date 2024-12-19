@@ -6,39 +6,44 @@ import { createOrder } from '../../State/Order/Action'
 import { useNavigate } from 'react-router-dom'
 
 const DeliveryAddressForm = () => {
-    const dispatch= useDispatch();
-    const navigate=useNavigate();
-    const {auth}=useSelector(store=>store)
-    console.log("auth",auth.user);
-    const jwt=localStorage.getItem("jwt");
-    const handleSubmit=(e)=>{
+    // Redux hooks for dispatch and state access
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const { auth } = useSelector(store => store)// Accessing the authentication state
+
+    // Getting JWT token from local storage
+    const jwt = localStorage.getItem("jwt");
+    // Form submission handler
+    const handleSubmit = (e) => {
         e.preventDefault();
-        const data=new FormData(e.currentTarget);
-        const address={
-            firstName:data.get("firstName"),
-            lastName:data.get("lastName"),
-            streetAddress:data.get("address"),
-            city:data.get("city"),
-            state:data.get("state"),
-            zipCode:data.get("zip"),
-            mobile:data.get("phoneNumber")
+        // Extract form data
+        const data = new FormData(e.currentTarget);
+        const address = {
+            firstName: data.get("firstName"),
+            lastName: data.get("lastName"),
+            streetAddress: data.get("address"),
+            city: data.get("city"),
+            state: data.get("state"),
+            zipCode: data.get("zip"),
+            mobile: data.get("phoneNumber")
         }
-        const orderData={address,navigate,jwt}
-        console.log("orderData",orderData);
-        dispatch(createOrder(orderData));
-        console.log("address",orderData);
+        const orderData = { address, navigate, jwt }// Order data to be dispatched
+        console.log("orderData", orderData);
+        dispatch(createOrder(orderData)); // Dispatch createOrder action with order data   
     }
-    
-    
+
+
     return (
         <div>
             <Grid container spacing={4}>
-                {/* <Grid item xs={12} lg={5} className='border rounded-e-md shadow-md h-[30.5rem] overflow-y-scroll'>
+                {/* Address Card and Delivery Button */}
+                <Grid item xs={12} lg={5} className='border rounded-e-md shadow-md h-[30.5rem] overflow-y-scroll'>
                     <div className='p-5 py-7 border-b cursor-pointer'>
-                        {auth.user?.address.map((item,index)=><AddressCard key={index} address={item} />)}
+                        {auth.user?.address.map((item, index) => <AddressCard key={index} address={item} />)}
                         <Button sx={{ mt: 2, bgcolor: "black" }} size='large' variant='contained'>Deliver Here</Button>
                     </div>
-                </Grid> */}
+                </Grid>
+                {/* Delivery Address Form */}
                 <Grid item xs={12} lg={7}>
                     <Box className="border rounded-s-md shadow-md p-5">
                         <form onSubmit={handleSubmit}>
@@ -52,10 +57,10 @@ const DeliveryAddressForm = () => {
 
                                 </Grid>
                                 <Grid item xs={12}>
-                                <TextField required id='address' name='address' label='Address' fullWidth autoComplete="given-name" multiline rows={6} />
+                                    <TextField required id='address' name='address' label='Address' fullWidth autoComplete="given-name" multiline rows={6} />
 
-                            </Grid>
-                            <Grid item xs={12} sm={6}>
+                                </Grid>
+                                <Grid item xs={12} sm={6}>
                                     <TextField required id='city' name='city' label='City' fullWidth autoComplete="given-name" />
 
                                 </Grid>
@@ -71,7 +76,7 @@ const DeliveryAddressForm = () => {
                                     <TextField required id='phoneNumber' name='phoneNumber' label='Phone Number' fullWidth autoComplete="given-name" />
                                 </Grid>
                                 <Grid item xs={12} sm={6}>
-                                <Button sx={{ py:1.5, mt: 2, bgcolor: "black" }} size='large' variant='contained' type="submit">Deliver Here</Button>
+                                    <Button sx={{ py: 1.5, mt: 2, bgcolor: "black" }} size='large' variant='contained' type="submit">Deliver Here</Button>
                                 </Grid>
                             </Grid>
                         </form>

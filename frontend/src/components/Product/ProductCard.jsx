@@ -2,15 +2,16 @@ import React from 'react'
 import "./ProductCard.css"
 import { useNavigate } from 'react-router-dom'
 
-const ProductCard = ({product}) => {
+const ProductCard = ({ product }) => {
   const navigate = useNavigate();
-  const handleNavigate=()=>{
+  const handleNavigate = () => {
     navigate(`/product/${product?._id}`)
   }
   return (
+    // display product details
     <div onClick={handleNavigate} className='productCard w-[15rem] m-3 transition-all cursor-pointer'>
       <div className='h-[20rem]'>
-        <img className='h-full w-full ' src={product.imageUrl}  alt=''/>
+        <img className='h-full w-full ' src={product.imageUrl} alt='' />
       </div>
       <div className='textPart bg-white p-3'>
         <div>

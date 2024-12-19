@@ -6,13 +6,13 @@ import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import StarIcon from "@mui/icons-material/Star";
 
 
-const OrderCard = ({item,order}) => {
-    const navigate = useNavigate();
-    return (
-        <div  className='p-5 shadow-lg hover:shadow-2xl'>
-            <Grid container spacing={2} sx={{ justifyContent: "space-between" }}>
-                
-                 <Grid item xs={6}>
+const OrderCard = ({ item, order }) => {
+  const navigate = useNavigate();
+  return (
+    <div className='p-5 shadow-lg hover:shadow-2xl'>
+      <Grid container spacing={2} sx={{ justifyContent: "space-between" }}>
+        {/* Left side displaying product details */}
+        <Grid item xs={6}>
           <div
             onClick={() => navigate(`/account/order/${order?._id}`)}
             className="flex cursor-pointer"
@@ -30,36 +30,37 @@ const OrderCard = ({item,order}) => {
             </div>
           </div>
         </Grid>
-                <Grid item xs={2}>
-                    <p>Rs{item?.price}</p>
-                </Grid>
-                
+        {/* Middle section displaying price */}
+        <Grid item xs={2}>
+          <p>Rs{item?.price}</p>
+        </Grid>
 
-<Grid item xs={4}>
+        {/* Right section displaying order status and review options */}
+        <Grid item xs={4}>
           <p className="space-y-2 font-semibold">
-            {order?.orderStatus === "DELIVERED"? (
-             <>
-             <FiberManualRecordIcon
+            {order?.orderStatus === "DELIVERED" ? (
+              <>
+                <FiberManualRecordIcon
                   sx={{ width: "15px", height: "15px" }}
                   className="text-green-600 p-0 mr-2 text-sm"
                 />
                 <span>Delivered On Dec 24</span>
 
-            </>
-            ):  <>
-               
-                <AdjustIcon
+              </>
+            ) : <>
+
+              <AdjustIcon
                 sx={{ width: "15px", height: "15px" }}
                 className="text-green-600 p-0 mr-2 text-sm"
               />
               <span>Expected Delivery On Dec 24</span>
-              </>}
-            
+            </>}
           </p>
-          {/* <p className="text-xs">Your Item Has Been Delivered</p> */}
+          {/* Rate & Review section displayed only if the item is delivered */}
+          <p className="text-xs">Your Item Has Been Delivered</p>
           {item.orderStatus === "DELIVERED" && (
             <div
-              onClick={() => navigate(`/account/rate/{id}`)}
+              onClick={() => navigate(`/account/rate/{id}`)}// Navigating to rate and review page
               className="flex items-center text-blue-600 cursor-pointer"
             >
               <StarIcon sx={{ fontSize: "2rem" }} className="px-2 text-5xl" />
@@ -67,9 +68,9 @@ const OrderCard = ({item,order}) => {
             </div>
           )}
         </Grid>
-            </Grid>
-        </div>
-    )
+      </Grid>
+    </div>
+  )
 }
 
 export default OrderCard

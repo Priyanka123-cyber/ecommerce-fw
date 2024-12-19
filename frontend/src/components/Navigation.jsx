@@ -6,12 +6,7 @@ import {
   ShoppingBagIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
-
-
 import { Avatar, Button, Menu, MenuItem } from "@mui/material";
-
-
-
 import { deepPurple } from "@mui/material/colors";
 import { navigation } from "../data/navigationmenu";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -33,14 +28,9 @@ export default function Navigation() {
   const [anchorEl, setAnchorEl] = useState(null);
   const openUserMenu = Boolean(anchorEl);
   const jwt = localStorage.getItem("jwt");
-  const {auth,cart}=useSelector(store=>store)
+  const { auth, cart } = useSelector(store => store)
   const dispatch = useDispatch()
   const location = useLocation();
-  
-
- 
-  
-
 
   const handleUserClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -61,24 +51,25 @@ export default function Navigation() {
     navigate(`/${category.id}/${section.id}/${item.id}`);
     close();
   };
-  useEffect(()=>{
-    if(jwt){
-        dispatch(getUser(jwt))
-        dispatch(getCart(jwt))
-    }   
-  },[jwt,auth.jwt])
+  
+  useEffect(() => {
+    if (jwt) {
+      dispatch(getUser(jwt))
+      dispatch(getCart(jwt))
+    }
+  }, [jwt, auth.jwt])
 
-  useEffect(()=>{
-    if(auth.user){
+  useEffect(() => {
+    if (auth.user) {
       handleClose()
     }
 
-    if(location.pathname==="/login" || location.pathname==="/register"){
+    if (location.pathname === "/login" || location.pathname === "/register") {
       navigate(-1)
     }
-  },[auth.user])
+  }, [auth.user])
 
-  const handleLogout=()=>{
+  const handleLogout = () => {
     dispatch(logout())
     handleCloseUserMenu()
   }
@@ -207,20 +198,6 @@ export default function Navigation() {
                     ))}
                   </Tab.Panels>
                 </Tab.Group>
-
-                {/* <div className="space-y-6 border-t border-gray-200 px-4 py-6">
-                  {navigation.pages.map((page) => (
-                    <div key={page.name} className="flow-root">
-                      <a
-                        href={page.href}
-                        className="-m-2 block p-2 font-medium text-gray-900"
-                      >
-                        {page.name}
-                      </a>
-                    </div>
-                  ))}
-                </div> */}
-
                 <div className="space-y-6 border-t border-gray-200 px-4 py-6">
                   <div className="flow-root">
                     <a
@@ -279,7 +256,7 @@ export default function Navigation() {
                   alt="Shoztop"
                   className="h-40 w-80 mr-2 object-contain"
                   quality={300}
-                  
+
                 />
 
               </div>
@@ -314,7 +291,6 @@ export default function Navigation() {
                             leaveTo="opacity-0"
                           >
                             <Popover.Panel className="absolute inset-x-0 top-full text-sm text-gray-500">
-                              {/* Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow */}
                               <div
                                 className="absolute inset-0 top-1/2 bg-white shadow"
                                 aria-hidden="true"
@@ -364,7 +340,7 @@ export default function Navigation() {
                                           >
                                             {section.name}
                                           </p>
-                                          {/* eslint-disable-next-line jsx-a11y/no-redundant-roles */}
+                                          
                                           <ul
                                             role="list"
                                             aria-labelledby={`${section.name}-heading`}
@@ -403,16 +379,6 @@ export default function Navigation() {
                       )}
                     </Popover>
                   ))}
-
-                  {/* {navigation.pages.map((page) => (
-                    <a
-                      key={page.name}
-                      href={page.href}
-                      className="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800"
-                    >
-                      {page.name}
-                    </a>
-                  ))} */}
                 </div>
               </Popover.Group>
 
@@ -426,24 +392,14 @@ export default function Navigation() {
                         aria-controls={open ? "basic-menu" : undefined}
                         aria-haspopup="true"
                         aria-expanded={open ? "true" : undefined}
-                        // onClick={handleUserClick}
                         sx={{
                           bgcolor: '#232637',
                           color: "white",
                           cursor: "pointer",
                         }}
                       >
-                      {auth.user?.firstName[0].toUpperCase()}
+                        {auth.user?.firstName[0].toUpperCase()}
                       </Avatar>
-                      {/* <Button
-                        id="basic-button"
-                        aria-controls={open ? "basic-menu" : undefined}
-                        aria-haspopup="true"
-                        aria-expanded={open ? "true" : undefined}
-                        onClick={handleUserClick}
-                      >
-                        Dashboard
-                      </Button> */}
                       <Menu
                         id="basic-menu"
                         anchorEl={anchorEl}
@@ -457,7 +413,7 @@ export default function Navigation() {
                           Profile
                         </MenuItem>
 
-                        <MenuItem onClick={()=>navigate("/account/order")} >
+                        <MenuItem onClick={() => navigate("/account/order")} >
                           My Orders
                         </MenuItem>
                         <MenuItem onClick={handleLogout}>Logout</MenuItem>
@@ -487,7 +443,7 @@ export default function Navigation() {
                 {/* Cart */}
                 <div className="ml-4 flow-root lg:ml-6">
                   <Button
-                  onClick={()=>navigate("/cart")}
+                    onClick={() => navigate("/cart")}
 
                     className="group -m-2 flex items-center p-2"
                   >
@@ -506,7 +462,7 @@ export default function Navigation() {
           </div>
         </nav>
       </header>
-      <AuthModal handleClose={handleClose} open={openAuthModal}/>
+      <AuthModal handleClose={handleClose} open={openAuthModal} />
 
     </div>
   );
