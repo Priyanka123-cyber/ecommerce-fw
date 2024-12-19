@@ -51,7 +51,7 @@ const Cart = () => {
                             <div className='flex justify-between pt-3 font-bold'>
                                 <span>Total Amount</span>
                                 <span className='text-green-600'>₹{cart.cart?.
-                                    totalPrice
+                                    totalDiscountedPrice
                                 }</span>
                             </div>
                         </div>

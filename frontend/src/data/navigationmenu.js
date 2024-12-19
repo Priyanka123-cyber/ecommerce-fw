@@ -25,8 +25,8 @@
                 items: [
                   { name:'Heels',id:"heels", href: `{women/footwear/heels}` },
                   { name: 'Flats', id:"flats", href: `{women/footwear/flats}` },
-                  { name: 'Casual Shoes', id:"casual_shoes", href:`{women/footwear/casual_shoes}`},
-                  { name: 'Sports Shoes',id:"sports_shoes", href: `{women/footwear/sports_shoes}`},
+                  { name: 'Casual Shoes', id:"casual", href:`{women/footwear/casual}`},
+                  { name: 'Sports Shoes',id:"sports", href: `{women/footwear/sports}`},
                   { name: 'Ethnic Footwear',id:"ethnic", href: `{women/footwear/ethnic}` },
                   { name: 'Boots',id:"boots", href:`{women/footwear/boots}` },
                  

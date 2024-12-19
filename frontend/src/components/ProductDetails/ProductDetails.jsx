@@ -563,7 +563,7 @@ const product = {
   href: "#",
   breadcrumbs: [
     { id: 1, name: "Men", href: "#" },
-    { id: 2, name: "Clothing", href: "#" },
+    { id: 2, name: "Footwear", href: "#" },
   ],
   images: [
     {
@@ -818,7 +818,7 @@ export default function ProductDetails() {
                 <Button
                   variant="contained"
                   type="submit"
-                  sx={{ padding: ".8rem 2rem", marginTop: "2rem" }}
+                  sx={{ px: "2.5rem", py: ".7rem", bgcolor: "#9155fd" }}
                 >
                   Add To Cart
                 </Button>

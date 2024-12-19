@@ -22,13 +22,14 @@ async function findUserCart(userId) {
         let totalDiscountedPrice = 0;
         let totalItem = 0;
 
-        for (let cartItem of cart.cartItems) {
+        for (const cartItem of cart.cartItems) {
             totalPrice += cartItem.price;
             totalDiscountedPrice += cartItem.discountedPrice;
             totalItem += cartItem.quantity;
         }
         cart.totalPrice = totalPrice;
         cart.totalItem = totalItem;
+        cart.totalDiscountedPrice=totalDiscountedPrice;
         cart.discount = totalPrice - totalDiscountedPrice;
 
         return cart;
