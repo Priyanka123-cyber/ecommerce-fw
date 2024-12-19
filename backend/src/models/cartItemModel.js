@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+// Mongoose schema for storing cart items, linking to the cart, product, and user with relevant details like size, quantity, and pricing.
+
 const cartItemSchema = new mongoose.Schema({
     cart:{
         type:mongoose.Schema.Types.ObjectId,

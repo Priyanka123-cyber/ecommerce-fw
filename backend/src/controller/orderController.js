@@ -1,41 +1,39 @@
-const orderService =require("../services/orderService");
+const orderService = require("../services/orderService");
 
+// Creates a new order for the authenticated user.
 
-const createOrder = async(req,res)=>{
-    const user =await req.user;
+const createOrder = async (req, res) => {
+    const user = await req.user;
     try {
-        let createdOrder = await orderService.createOrder(user,req.body);
+        let createdOrder = await orderService.createOrder(user, req.body);
         return res.status(201).send(createdOrder);
     } catch (error) {
-      return res.status(500).send({error:error.message})  
+        return res.status(500).send({ error: error.message })
     }
 }
+// Finds a specific order by its ID.
+const findOrderById = async (req, res) => {
+    const user = await req.user;
 
-const findOrderById = async(req,res)=>{
-    const user =await req.user;
-    
     try {
-        console.log("helllo.....",req.params.id);
         let createdOrder = await orderService.findOrderById(req.params.id);
-       
-        console.log("created order",createdOrder);
         return res.status(201).send(createdOrder);
     } catch (error) {
-      return res.status(500).send({error:error.message})  
+        return res.status(500).send({ error: error.message })
     }
 }
-
-const orderHistory = async(req,res)=>{
-    const user =await req.user;
+// Retrieves the order history for the authenticated user.
+const orderHistory = async (req, res) => {
+    const user = await req.user;
     try {
         let createdOrder = await orderService.usersOrderHistory(user._id);
         return res.status(201).send(createdOrder);
     } catch (error) {
-      return res.status(500).send({error:error.message})  
+        return res.status(500).send({ error: error.message })
     }
 }
 
-module.exports={
+module.exports = {
     createOrder,
     findOrderById,
     orderHistory

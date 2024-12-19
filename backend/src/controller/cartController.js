@@ -1,28 +1,30 @@
 const cartService = require("../services/cartService");
+// Retrieves the cart for the authenticated user.
 
-const findUserCart= async(req,res)=>{
+const findUserCart = async (req, res) => {
     const user = req.user;
-    
+
     try {
         const cart = await cartService.findUserCart(user._id);
-        
+
         return res.status(200).send(cart)
     } catch (error) {
-        return res.status(500).send({message:"Failed to get user cart",error:error.message})
+        return res.status(500).send({ message: "Failed to get user cart", error: error.message })
     }
 }
+// Adds an item to the authenticated user's cart.
 
-const addItemToCart= async(req,res)=>{
+const addItemToCart = async (req, res) => {
     const user = req.user;
     try {
-        const cartItem = await cartService.addCartItem(user._id,req.body);
+        const cartItem = await cartService.addCartItem(user._id, req.body);
         return res.status(200).send(cartItem);
     } catch (error) {
-        return res.status(500).send({error:error.message})
+        return res.status(500).send({ error: error.message })
     }
 }
 
-module.exports ={
+module.exports = {
     findUserCart,
     addItemToCart
 }

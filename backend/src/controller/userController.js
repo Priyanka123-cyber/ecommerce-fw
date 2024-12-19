@@ -1,30 +1,29 @@
 const userService = require("../services/userService");
+// Retrieves the profile of the user associated with the provided JWT token.
 
-const getUserProfile= async(req,res)=>{
+const getUserProfile = async (req, res) => {
     const jwt = req.headers.authorization?.split(' ')[1];
-
-    console.log("req ",jwt)
     try {
-        if(!jwt){
-            return res.status(404).send({error:"token not found"})
+        if (!jwt) {
+            return res.status(404).send({ error: "token not found" })
         }
         const user = await userService.getUserProfileByToken(jwt);
         return res.status(200).send(user);
     } catch (error) {
-        console.log(error);
-        return res.status(500).send({error:error.message});
+        return res.status(500).send({ error: error.message });
 
     }
 }
+// Retrieves a list of all users in the system.
 
-const getAllUsers = async(req,res)=>{
+const getAllUsers = async (req, res) => {
     try {
         const users = await userService.getAllUsers();
         return res.status(200).send(users);
     } catch (error) {
-        return res.status(500).send({error:error.message});
+        return res.status(500).send({ error: error.message });
 
     }
 }
 
-module.exports={getUserProfile,getAllUsers}
+module.exports = { getUserProfile, getAllUsers }

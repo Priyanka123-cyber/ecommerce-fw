@@ -1,58 +1,59 @@
 const mongoose = require('mongoose')
 
+// Mongoose schema for user data, including personal details, address, payment information, ratings, and reviews.
 
-const userSchema =new  mongoose.Schema({
-    firstName:{
-        type:String,
-        required:true,
+const userSchema = new mongoose.Schema({
+    firstName: {
+        type: String,
+        required: true,
     },
-    lastName:{
-        type:String,
-        required:true,
+    lastName: {
+        type: String,
+        required: true,
 
     },
-    password:{
-        type:String,
-        required:true,
+    password: {
+        type: String,
+        required: true,
     },
-    email:{
-        type:String,
-        required:true,
+    email: {
+        type: String,
+        required: true,
     },
-    role:{
-        type:String,
-        required:true,
-        default:"CUSTOMER"
+    role: {
+        type: String,
+        required: true,
+        default: "CUSTOMER"
     },
-    mobile:{
-        type:String,
+    mobile: {
+        type: String,
     },
-    address:[{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:"addresses"
+    address: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "addresses"
     }],
-    paymentInformation:[{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:"payment_information"
+    paymentInformation: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "payment_information"
     }
     ],
-    ratings:[
+    ratings: [
         {
-            type:mongoose.Schema.Types.ObjectId,
-            ref:"ratings"
-            
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "ratings"
+
         }
     ],
-    reviews:[{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:"reviews"
+    reviews: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "reviews"
     }],
-    createdAt:{
-        type:Date,
-        default:Date.now()
+    createdAt: {
+        type: Date,
+        default: Date.now()
     }
 
 })
 
-const User = mongoose.model("users",userSchema);
-module.exports=User
+const User = mongoose.model("users", userSchema);
+module.exports = User
