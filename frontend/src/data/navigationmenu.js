@@ -25,7 +25,7 @@ export const navigation = {
           items: [
             { name: 'Heels', id: "heels", href: `{women/footwear/heels}` },
             { name: 'Flats', id: "flats", href: `{women/footwear/flats}` },
-            { name: 'Casual Shoes', id: "casual_shoes", href: `{women/footwear/casual_shoes}` },
+            { name: 'Casual Shoes', id: "casual", href: `{women/footwear/casual}` },
             { name: 'Sports Shoes', id: "sports_shoes", href: `{women/footwear/sports_shoes}` },
             { name: 'Ethnic Footwear', id: "ethnic", href: `{women/footwear/ethnic}` },
             { name: 'Boots', id: "boots", href: `{women/footwear/boots}` },
@@ -71,9 +71,9 @@ export const navigation = {
           items: [
             { name: 'Office Wear', id: "office_wear", href: `{men/footwear/office_wear}` },
             { name: 'Casual Shoes', id: "casual_shoes", href: `{men/footwear/casual_shoes}` },
-            { name: 'Sports Shoes', id: "office_wear", href: `{men/footwear/sports_shoes}` },
+            { name: 'Sports Shoes', id: "sports", href: `{men/footwear/sports}` },
             { name: 'Ethnic Footwear', id: "ethnic_footwear", href: `{men/footwear/ethnic_footwear}` },
-            { name: 'Boots', id: "boots", href: `{men/footwear/boots}` },
+            { name: 'Boots', id: "men_boots", href: `{men/footwear/men_boots}` },
             { name: 'Sandals and Slides', id: "sandals", href: `{men/footwear/sandals}` },
           ],
         },
